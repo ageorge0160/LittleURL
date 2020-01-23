@@ -1,0 +1,3 @@
+MYSQL_ROOT_PASSWORD=hellothere
+MYSQL_DATABASE=littleurl_db
+MYSQL_DB=littleurl_db
