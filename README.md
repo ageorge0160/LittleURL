@@ -11,7 +11,7 @@ This application takes in urls and returns a unique shortened url.
 
 ## Installation
 
-1. Download Docker from [https://www.docker.com/]
+1. Download Docker from https://www.docker.com/
 2. Run `docker-compose build`
 3. Run `docker-compose up`
-4. Go to [http://localhost:3000/shorten_urls]
+4. Go to http://localhost:3000/shorten_urls
