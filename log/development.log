@@ -136,3 +136,34 @@ Processing by ShortenUrlsController#show as HTML
 Completed 200 OK in 251ms (Views: 212.5ms | ActiveRecord: 2.0ms)
 
 
+Started GET "/shorten_urls/1" for 172.20.0.1 at 2020-01-23 01:15:38 +0000
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ShortenUrlsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mShortenUrl Load (1.1ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mShortenUrl Load (0.8ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."little_url" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering shorten_urls/show.html.erb within layouts/application
+  Rendered shorten_urls/show.html.erb within layouts/application (23.0ms)
+Completed 500 Internal Server Error in 115ms (ActiveRecord: 5.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `original_url' for nil:NilClass):
+    2: 
+    3: <p>
+    4:   <strong>Original url:</strong>
+    5:   <%= @shorten_url.original_url %>
+    6: </p>
+    7: 
+    8: <p>
+  
+app/views/shorten_urls/show.html.erb:5:in `_app_views_shorten_urls_show_html_erb__2821141205174658433_47273946217180'
+  Rendering /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.8ms)
+  Rendering /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (41.7ms)

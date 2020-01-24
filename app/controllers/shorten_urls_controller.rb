@@ -10,7 +10,6 @@ class ShortenUrlsController < ApplicationController
   # GET /shorten_urls/1
   # GET /shorten_urls/1.json
   def show
-    @shorten_url = ShortenUrl.find_by(little_url: params[:little_url])
   end
 
   # GET /shorten_urls/new
@@ -26,11 +25,6 @@ class ShortenUrlsController < ApplicationController
   # POST /shorten_urls.json
   def create
     @shorten_url = ShortenUrl.new(shorten_url_params)
-    if @shorten_url.little_url != nil
-      @shorten_url.little_url
-    else
-      @shorten_url.little_url = @shorten_url.generate_short_url()
-    end
 
     respond_to do |format|
       if @shorten_url.save
@@ -70,7 +64,7 @@ class ShortenUrlsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_shorten_url
-      @shorten_url = ShortenUrl.find_by(params[:little_url])
+      @shorten_url = ShortenUrl.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
